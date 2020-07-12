@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PublishChromeDriver>true</PublishChromeDriver>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PublishChromeDriver>true</PublishChromeDriver>
+    <ApplicationIcon>favico.ico</ApplicationIcon>
+    <Version>0.0.1</Version>
+    <Authors>João Pedro Santos de Moura</Authors>
+    <Company>com.github.jpmoura</Company>
+    <Product>WhatsApp.SimpleCRM.Console</Product>
+    <Copyright>MIT</Copyright>
+    <PackageTags>CRM WhatsApp Selenium</PackageTags>
+    <PackageReleaseNotes>Versão Alpha</PackageReleaseNotes>
+    <Description>Programa que lê um arquivo de Excel formato com colunas de destinatário e mensagem e envia automaticamente a mensagem para cada destinatário. Foi pensado para envio em massa de mensagens a múltiplos clientes, sem a necessidade de ser mensagens iguais</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WhatsApp.SimpleCRM.Domain\WhatsApp.SimpleCRM.Domain.csproj" />
+    <ProjectReference Include="..\WhatsApp.SimpleCRM.Infra.CrossCutting\WhatsApp.SimpleCRM.Infra.CrossCutting.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="favico.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
