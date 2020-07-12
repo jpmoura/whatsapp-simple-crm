@@ -1,24 +1,34 @@
-# TOTVS Fullstack Challenge - Backend
+# WhatsApp Simple CRM 🤝
+[![.NET Core 3.1 Badge](https://img.shields.io/badge/-Core%203.1-5C2D91?style=flat-square&logo=.NET&logoColor=white&link=https://dotnet.microsoft.com/download)](https://dotnet.microsoft.com/download) [![WhatsApp Web Badge](https://img.shields.io/badge/-WhatsApp%20Web-25D366?style=flat-square&logo=WhatsApp&logoColor=white&link=https://web.whatsapp.com/)](https://web.whatsapp.com/) [![Microsoft Excel Badge](https://img.shields.io/badge/-Microsoft%20Excel-217346?style=flat-square&logo=Microsoft%20Excel&logoColor=white&link=https://office.live.com/start/Excel.aspx)](https://office.live.com/start/Excel.aspx) [![Version Badge](https://img.shields.io/github/v/release/jpedro/whatsapp-simple-crm)](https://github.com/jpmoura/whatsapp-simple-crm)
 
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=jpmoura_TotvsFullstackChalleng&metric=bugs)](https://sonarcloud.io/dashboard?id=jpmoura_TotvsFullstackChalleng)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=jpmoura_TotvsFullstackChalleng&metric=code_smells)](https://sonarcloud.io/dashboard?id=jpmoura_TotvsFullstackChalleng)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=jpmoura_TotvsFullstackChalleng&metric=coverage)](https://sonarcloud.io/dashboard?id=jpmoura_TotvsFullstackChalleng)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=jpmoura_TotvsFullstackChalleng&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=jpmoura_TotvsFullstackChalleng)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jpmoura_TotvsFullstackChalleng&metric=alert_status)](https://sonarcloud.io/dashboard?id=jpmoura_TotvsFullstackChalleng)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=jpmoura_TotvsFullstackChalleng&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=jpmoura_TotvsFullstackChalleng)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=jpmoura_TotvsFullstackChalleng&metric=sqale_index)](https://sonarcloud.io/dashboard?id=jpmoura_TotvsFullstackChalleng)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=jpmoura_TotvsFullstackChalleng&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=jpmoura_TotvsFullstackChalleng)
+Esse projeto se trata de uma aplicação de console multiplataforma construída com .NET Core que visa automatizar o envio de mensagens via [WhatsApp Web](https://web.whatsapp.com/).
 
-Como parte do desafio _fullstack_, para o _backend_ foi criada uma API REST em C# usando [.NET Core 3.1](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-core-3-1) e [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1) persistindo dados com [MongoDB](https://www.mongodb.com/).
-
-Essa API também conta com uma rota de documentação via [Swagger](https://swagger.io/) que pode ser acessada no endpoint `\swagger` no endereço que a API está hospedada.
+Inicialmente ele foi desenvolvido tendo em vista uma comunicação diária com clientes, onde existe a necessidade de um vendedor de enviar um resumo do status dos pedidos de vários clientes. Como a [Business API do WhatsApp](https://www.whatsapp.com/business/api) não atendia aos requisitos necessários, a criação desse projeto tornou-se necessária.
 
 ## 1. Instruções
 
+Para que o programa funcione corretamente, é necessário que exista um arquivo XLSX com o nome **igual** a `comunicações.xlsx`.
+
+A estrutura da planilha é simples, sendo:
+
+| Nome do Contato | Mensagem a ser enviada |
+|--|--|
+| Cliente Exemplo | Oi cliente exemplo, seu pedido já foi enviado |
+
+Cada linha deve ter em sua primeira coluna o nome do contato ao qual a mensagem será enviada, exatamente como aparece no [WhatsApp Web](https://web.whatsapp.com/), ou seja, com a mesma escrita da agenda do usuário no seu dispositivo móvel. 
+
+**Não é necessário a inclusão de cabeçalhos**, uma vez que todas as linhas serão consideradas já como uma comunicação a ser realizada.
+
+Com o arquivo `comunicações.xlsx` criado, basta colocá-lo no mesmo diretório (pasta) do programa e então executar o próprio programa. Ele irá abrir uma nova janela do navegador Chrome, onde será necessária a única interação por parte do usuário, que é [permitir o uso do WhatsApp Web](https://faq.whatsapp.com/general/download-and-installation/how-to-log-in-or-out).
+
+Após a sincronização o programa irá se encarregar de enviar as mensagens para os contatos presentes no arquivo. Após feito os envios, o próprio programa se encarrega de fazer o _logout_ do [WhatsApp Web](https://web.whatsapp.com/).
+
+Toda execução do programa gera um novo arquivo (caso ele já não exista) chamado `WhatsApp.SimpleCRM.logsAAAAMMDD.txt` onde contém informações sobre a execução do mesmo, como erros que ocorreram, por exemplo. Ele é útil para a realização de análise de erros durante a execução e comportamento do programa.
 
 ## 2. TODO
 
-1. Testes automatizados
+1. Testes unitários
 2. Flexibilização de configurações como caminho do arquivo da planilha e ativação/desativação de log bem como o caminho do arquivo
 3. Uso de um repositório ou serviço de log remoto (e.g Splunk, Firebase)
-4. Tradução dos comentários par ainglês para facilitar a contribuição de terceiros
+4. Tradução dos comentários e README para o inglês para facilitar a contribuição
+5. Flexibilização de formatos aceitos (e.g. CSV)
