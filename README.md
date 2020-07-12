@@ -5,6 +5,8 @@ Esse projeto se trata de uma aplicação de console multiplataforma construída 
 
 Inicialmente ele foi desenvolvido tendo em vista uma comunicação diária com clientes, onde existe a necessidade de um vendedor de enviar um resumo do status dos pedidos de vários clientes. Como a [Business API do WhatsApp](https://www.whatsapp.com/business/api) não atendia aos requisitos necessários, a criação desse projeto tornou-se necessária.
 
+A primeira versão _alpha_ da aplicação para o Windows pode ser baixada [nesse link](https://github.com/jpmoura/whatsapp-simple-crm/releases/download/v0.0.1-alpha/WhatsApp.SimpleCRM.Console.exe)
+
 ## 1. Instruções
 
 Para que o programa funcione corretamente, é necessário que exista um arquivo XLSX com o nome **igual** a `comunicações.xlsx`.
